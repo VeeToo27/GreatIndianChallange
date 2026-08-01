@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 100% 0%, rgba(31, 111, 92, 0.08), transparent 45%),
+    radial-gradient(circle at 0% 100%, rgba(255, 111, 89, 0.06), transparent 40%);
+}
+
+/* Signature element: the "waterline" — a literal horizontal divider carried
+   from the iceberg insight (what people say, above; what they actually do,
+   below). Used on the hero and again on the dashboard header. */
+.waterline {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #1F6F5C, transparent);
+}
+
+.waterline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    #1F6F5C 0px,
+    #1F6F5C 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  opacity: 0.5;
+}
+
+.card-focus:focus-visible {
+  outline: 2px solid #1F6F5C;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
